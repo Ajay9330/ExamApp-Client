@@ -1,0 +1,31 @@
+.Home{
+    border: 1px solid;
+
+    p{
+        font-size: 3rem;
+        position: relative;
+        // top:calc(-15vw);
+        color: blue;
+    }
+    height: calc(100vh - 51px);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    *{
+        top:0;
+        font-size: 2rem;
+
+    }
+}
+.Header{
+    text-align: center;
+    align-items:center;
+    height: 50px;
+    margin: 0;
+    // border-top: 1px solid;
+    h1{
+        margin: 0px;
+    }
+}
+

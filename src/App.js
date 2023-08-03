@@ -1,23 +1,56 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Home from './Components/Landing/Home';
+import Login from './Components/Login';
+import Loading from './Components/Loading';
 
 function App() {
+  const storedUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+  const [loggedInUser, setLoggedInUser] = useState(storedUser || null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null); // Add error state
+
+  const handleLogin = async (userData) => {
+    try {
+      setLoading(true);
+      setError(null); // Clear previous error if any
+
+      const response = await fetch('examapp.api', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (response.ok) {
+        setLoggedInUser(userData);
+        sessionStorage.setItem('loggedInUser', JSON.stringify(userData));
+      } else {
+        setError('Login failed. Please check your credentials.'); // Set error message
+      }
+    } catch (error) {
+      setError('An error occurred while connecting to the server.'); // Set error message
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000); 
+
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {loading ? (
+        <Loading />
+      ) : (
+        // Show either Login or Home based on loggedInUser
+        loggedInUser === null ? (
+          <Login onLogin={handleLogin} error={error} />
+        ) : (
+          <Home />
+        )
+      )}
     </div>
   );
 }
