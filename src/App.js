@@ -27,7 +27,11 @@ function App() {
         setLoggedInUser(userData);
         sessionStorage.setItem('loggedInUser', JSON.stringify(userData));
       } else {
-        setError('Login failed. Please check your credentials.'); // Set error message
+
+        setError(JSON.stringify(response.statusText+":"+response.status));
+        console.log(response); // Set error message
+        sessionStorage.setItem('loggedInUser',"true");
+        alert(JSON.stringify(sessionStorage));
       }
     } catch (error) {
       setError('An error occurred while connecting to the server.'); // Set error message
