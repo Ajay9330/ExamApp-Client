@@ -1,60 +1,75 @@
 import './App.css';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './Components/Landing/Home';
 import Login from './Components/Login';
-import Loading from './Components/Loading';
+import NotFound from './Components/NotFound';
+import Dash from './Components/Dashbord/Dash';
+
+function clearAllCookies() {
+  const cookies = document.cookie.split("; ");
+  for (const cookie of cookies) {
+    const [name] = cookie.split("=");
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  }
+}
 
 function App() {
-  const storedUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
-  const [loggedInUser, setLoggedInUser] = useState(storedUser || null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null); // Add error state
+  const [isloggedin, setLoggedin] = useState(false);
+  const [loading, setLoading] = useState(true); // To handle loading state while checking login status
 
-  const handleLogin = async (userData) => {
-    try {
-      setLoading(true);
-      setError(null); // Clear previous error if any
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const response = await fetch('http://localhost:3300', {
+          method: 'get',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        });
 
-      const response = await fetch('examapp.api', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
-
-      if (response.ok) {
-        setLoggedInUser(userData);
-        sessionStorage.setItem('loggedInUser', JSON.stringify(userData));
-      } else {
-
-        setError(JSON.stringify(response.statusText+":"+response.status));
-        console.log(response); // Set error message
-        sessionStorage.setItem('loggedInUser',"true");
-        alert(JSON.stringify(sessionStorage));
+        if (response.ok) {
+          setLoggedin(true);
+        } else {
+          setLoggedin(false);
+        }
+      } catch (error) {
+        console.error('An error occurred while sending the request:', error);
+      } finally {
+        setLoading(false); // Request completed, stop loading
       }
-    } catch (error) {
-      setError('An error occurred while connecting to the server.'); // Set error message
-    } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000); 
+    };
 
-    }
-  };
+    checkLoginStatus();
+  }, []);
+
+  // Show loading screen while checking login status
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className='App'>
-      {loading ? (
-        <Loading />
-      ) : (
-        // Show either Login or Home based on loggedInUser
-        loggedInUser === null ? (
-          <Login onLogin={handleLogin} error={error} />
-        ) : (
-          <Home />
-        )
-      )}
+     {isloggedin? <button onClick={()=>{setLoggedin(false);clearAllCookies();  }}>click</button>:""}
+      <Router>
+        <Routes>
+          <Route
+            path='/dashboard'
+            element={isloggedin ? <Dash /> : <Navigate to="/login" />}
+          />
+          <Route
+            path='/'
+            element={isloggedin ? <Home /> : <Navigate to="/login" />}
+          />
+          <Route
+            path='/login'
+            element={isloggedin ? <Navigate to='/' /> : <Login setLogin={setLoggedin} />}
+          />
+          {/* Add more protected routes here */}
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
