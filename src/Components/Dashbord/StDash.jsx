@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function StDash() {
+export default function StDash({props}) {
   return (
     <div>StDash</div>
   )

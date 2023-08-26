@@ -1,0 +1,147 @@
+/* Overall layout */
+.teach-dash-container {
+    overflow: hidden;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: calc(100vh - 55px);
+}
+
+/* Left sidebar */
+.teach-dash-left {
+    
+  background-color: #adb1b7;
+  color: rgb(2, 2, 2);
+  width: 78px;
+  overflow-x: hidden;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Active left sidebar */
+.teach-dash-left.active {
+  width: 250px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Left sidebar list */
+.teach-dash-left ul {
+
+  overflow: hidden;
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Left sidebar list item */
+.teach-dash-left li {
+    border-radius: 45px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  margin:  9px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Left sidebar list item hover */
+.teach-dash-left li:hover {
+  color: rgb(30, 3, 231);
+  background-color: #a39e9e;
+}
+
+/* Link icon */
+.link-icon img {
+  width: 36px;
+  font-size: 18px;
+
+}
+
+/* Link label */
+.link-label {
+  white-space: nowrap; /* Prevent text wrapping */
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
+  padding-left: 10px;
+
+}
+
+/* Active link styling */
+.teach-dash-left li.active {
+  
+    background-color: #d4cece;
+
+}
+
+/* Right content */
+.teach-dash-right {
+/* background-image: url("./media/hbg.jpg") ; */
+  height: calc(100vh - 55px);
+  overflow-y: scroll;
+
+}
+
+/* Toggle button */
+.toggle-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+
+/* Hamburger button */
+.hamburger-button {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+}
+
+/* Media Query for Small Screen Widths */
+@media (max-width: 768px) {
+  .teach-dash-container {
+    grid-template-columns: auto;
+    grid-template-rows: auto 60px;
+  }
+  
+  .teach-dash-left.active {
+    width: 100%;
+  }
+  
+  .teach-dash-left {
+ 
+    display: flex;
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    
+  }
+
+  .teach-dash-left ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-around;
+    margin: 5px;
+    list-style-type: none;
+    padding: 0;
+  }
+  .teach-dash-left ul li{
+    height: 5px;
+    padding: 18px 15px;
+  
+  }
+  .teach-dash-right {
+    grid-column: 1;
+    height: calc(100vh - 150px);
+  }
+  .hamburger-button{
+    display: none;
+  }
+ 
+}

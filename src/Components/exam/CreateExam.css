@@ -1,0 +1,80 @@
+/* CreateExam.css */
+.exam-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.exam-form > div {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.exam-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.exam-form input[type="text"],
+.exam-form input[type="date"],
+.exam-form input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.exam-form input[type="text"]::placeholder,
+.exam-form input[type="date"]::placeholder,
+.exam-form input[type="time"]::placeholder {
+  color: #999;
+}
+
+.exam-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.exam-form button:hover {
+  background-color: #0056b3;
+}
+
+.question {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.question button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.question button:hover {
+  background-color: #c82333;
+}

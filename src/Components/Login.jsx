@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
+import Loading from './Loading';
 
 const Login = ({ setLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('student'); // Default userType
-  const error="none";
+  const [error, setError] = useState(null); // Error state
+  const [loading, setLoading] = useState(false); // Loading state
 
   const navigate = useNavigate(); // Declare the navigate function here
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true); // Set loading to true while fetching
 
     const userData = {
       email,
@@ -33,17 +37,28 @@ const Login = ({ setLogin }) => {
         console.log(response.status);
         setLogin(true);
         // await onLogin(userData);
-        navigate('/'); // Use navigate here to navigate to the root route
-      } else {
+        navigate('/dashboard'); // Use navigate here to navigate to the root route
+      } else if(response.status==401) {
+        setError('Invalid email or password.'); // Set the error message
         console.error('Login failed:', response.status, response.statusText);
         // Handle login error here if needed
+      }else{
+        setError("error code"+response.status);
       }
     } catch (error) {
+      setError('An error occurred while sending the request.');
       console.error('An error occurred while sending the request:', error);
+    } finally {
+      // Use setTimeout to delay setting loading back to false
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000); // 2000 milliseconds delay
     }
   };
 
   return (
+    <>
+    {loading?<Loading/>:""}
     <div className="login-container">
       <h1>Login</h1>
       {error && <div className="error-message">{error}</div>}
@@ -70,11 +85,12 @@ const Login = ({ setLogin }) => {
           <option value="student">Student</option>
           <option value="teacher">Teacher</option>
         </select>
-        <button type="submit" className="login-button">
-          Login
+        <button type="submit" className="login-button" disabled={loading}>
+          {loading ? 'Logging in...' : 'Login'}
         </button>
       </form>
     </div>
+    </>
   );
 };
 

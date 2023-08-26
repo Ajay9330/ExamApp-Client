@@ -1,0 +1,7 @@
+.exam-card-contain{
+    background-color: bisque;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}

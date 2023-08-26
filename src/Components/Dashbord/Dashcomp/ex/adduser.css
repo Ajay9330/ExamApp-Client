@@ -1,0 +1,63 @@
+.add-user-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* max-width: 800px; */
+    width: 100%;
+    gap: 6px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+  }
+  
+  .add-user-container label {
+    text-align: center;
+    /* background-color: brown; */
+    width: 90px;
+  }
+  .add-user-container div{
+    row-gap: 15px;
+    justify-content: space-around;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+  }
+  .add-user-container h2{
+    width: 100%;
+    text-align: center;
+  }
+  .add-user-container select,
+  .add-user-container input {
+    box-sizing: border-box;
+    width: 85%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .add-user-container button {
+    align-self: center;
+    padding: 10px;
+    background-color: rebeccapurple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-user-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .success {
+    color: green;
+  }
+  
+  .error {
+    color: red;
+  }
+  

@@ -5,72 +5,104 @@ import Home from './Components/Landing/Home';
 import Login from './Components/Login';
 import NotFound from './Components/NotFound';
 import Dash from './Components/Dashbord/Dash';
+import Loading from './Components/Loading';
+import CreateExam from './Components/exam/Createxam';
+import Header from './Components/Landing/Header';
+import Popup from './Components/Popup';
+async function logout() {
 
-function clearAllCookies() {
+  try {
+    const response = await fetch('http://localhost:3300/logout', {
+      method: 'post',
+      credentials: 'include',
+    });
+    const responseData = await response.json();
+    if (response.ok) {
+      // clearAllCookies(); // Call your clearAllCookies function
+      // alert("Successfully Logout");
+      alert(JSON.stringify(responseData.message)); // Use 'message', not 'messege'
+    } else {
+      // Handle logout error if needed
+      console.error('Logout failed:', response.status, response.statusText);
+    }
+  } catch (error) {
+    console.error('An error occurred while sending the request:', error);
+  }
   const cookies = document.cookie.split("; ");
   for (const cookie of cookies) {
     const [name] = cookie.split("=");
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   }
 }
-
 function App() {
+  
   const [isloggedin, setLoggedin] = useState(false);
-  const [loading, setLoading] = useState(true); // To handle loading state while checking login status
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const response = await fetch('http://localhost:3300', {
+        const response = await fetch('http://localhost:3300/verify', {
           method: 'get',
           headers: {
             'Content-Type': 'application/json',
           },
           credentials: 'include',
         });
-
+        console.log(response.status);
         if (response.ok) {
           setLoggedin(true);
-        } else {
+        } else if(response.status==404) {
           setLoggedin(false);
         }
       } catch (error) {
         console.error('An error occurred while sending the request:', error);
       } finally {
-        setLoading(false); // Request completed, stop loading
+        setTimeout(()=> setLoading(false),5);
       }
     };
 
     checkLoginStatus();
-  }, []);
+  }, []); // Empty dependency array to trigger the effect only once
 
-  // Show loading screen while checking login status
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
+    <>
+   {/* {loading?<Loading/>:""} */}
     <div className='App'>
-     {isloggedin? <button onClick={()=>{setLoggedin(false);clearAllCookies();  }}>click</button>:""}
+
+    {isloggedin && <Header onLogout={() => { setLoggedin(false); logout(); }} />}
       <Router>
         <Routes>
+        
+  
           <Route
-            path='/dashboard'
+            path='/dashboard' 
             element={isloggedin ? <Dash /> : <Navigate to="/login" />}
           />
+           <Route
+             path='/create-exam'
+             element={isloggedin ? <CreateExam /> : <Navigate to='/login' />}
+           />
+
           <Route
-            path='/'
-            element={isloggedin ? <Home /> : <Navigate to="/login" />}
+            path='/' exact
+            // element={isloggedin ? <Home /> : <Navigate to="/login" />}
+            element={isloggedin ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
           />
           <Route
             path='/login'
             element={isloggedin ? <Navigate to='/' /> : <Login setLogin={setLoggedin} />}
           />
-          {/* Add more protected routes here */}
+
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Router>
     </div>
+    </>
   );
 }
 
