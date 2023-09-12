@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './adduser.css'; // Import your CSS file for styling
-import Loading from '../../../Loading';
+// import Loading from '../../../Loading';
 import Message from '../../../Message';
+
 
 
 function AddUser() {
@@ -18,6 +19,11 @@ function AddUser() {
     addedBy: '',
     joinedDate: '',
     prnNo: '',
+    name:'',
+    gender:'',
+    age:Number,
+    mainsubject:'',
+    
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -60,6 +66,10 @@ function AddUser() {
           addedBy: '',
           joinedDate: '',
           prnNo: '',
+          name:'',
+          gender:'Male',
+          age:Number,
+          mainsubject:''
         });
       } else {
         setMessage({ type: 'error', text: data.error });
@@ -82,6 +92,12 @@ function AddUser() {
           <option value="student">Student</option>
         </select>
       </div>
+
+      <div>
+        <label>Name:</label>
+        <input type="text" value={userDetails.name} onChange={(e) => handleChange('name', e.target.value)} />
+      </div>
+
       <div>
         <label>Email:</label>
         <input type="email" value={userDetails.email} onChange={(e) => handleChange('email', e.target.value)} />
@@ -89,6 +105,20 @@ function AddUser() {
       <div>
         <label>Password:</label>
         <input type="password" value={userDetails.password} onChange={(e) => handleChange('password', e.target.value)} />
+      </div>
+    
+      <div>
+        <label>Age:</label>
+        <input type="number" value={userDetails.age} onChange={(e) => handleChange('age', e.target.value)} />
+      </div>
+
+      <div>
+        <label>Gender:</label>
+        <select value={userDetails.gender} onChange={(e) => handleChange('gender', e.target.value)}>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="other">Other</option>
+        </select>
       </div>
 
       {userDetails.userType === 'teacher' && (
@@ -101,6 +131,12 @@ function AddUser() {
             <label>Subjects:</label>
             <input type="text" value={userDetails.subjects} onChange={(e) => handleChange('subjects', e.target.value)} />
           </div>
+
+          <div>
+            <label>Main Subject:</label>
+            <input type="text" value={userDetails.mainsubject} onChange={(e) => handleChange('mainsubject', e.target.value)} />
+          </div>
+
           <div>
             <label>Degrees:</label>
             <input type="text" value={userDetails.degrees} onChange={(e) => handleChange('degrees', e.target.value)} />
@@ -170,7 +206,7 @@ function AddUser() {
       {message && <p className={message.type}>{message.text}</p>}
 
     </div>
-    {message.text !=null && <Message message={message.text} onClose={()=>{setMessage("")}}/>}
+    {message.text !=null && <Message message={message.text} type={message.type} onClose={()=>{setMessage("")}}/>}
     </>
   );
 }

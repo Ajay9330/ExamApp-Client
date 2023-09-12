@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import TeachDash from './TeachDash';
-import StDash from './StDash';
+import TeachDash from './TeachStDash';
+import Loading from '../Loading';
+// import StDash from './StDash';
 
 export default function Dash() {
   const [profile, setProfile] = useState({});
-
+  const [isloading,setloading]=useState(true);
+  const[error,seterror]=useState('');
   useEffect(() => {
     // Make the API call to fetch teacher data
     fetch('http://localhost:3300/profile', {
@@ -20,29 +22,35 @@ export default function Dash() {
           setProfile(data.studentData);
         }
         else {
+          seterror(data.error);
           console.error('Invalid data received:', data);
+          
         }
+        setloading(false);
       })
       .catch(error => {
-        console.error('Error fetching teacher data:', error);
-      });
+        console.error('Error fetching data:', error);
+        seterror(error);
+        setloading(false);
+      }
+      )
+      
   }, []);
 
   console.log(profile);
 
   // Check if profile is empty or undefined
-  if (!profile || Object.keys(profile).length === 0) {
-    return <p>Loading...</p>;
-  }
+
 
   return (
-    <>
+    <>{error!=='' && <div>{error}</div>}
+    {isloading && <Loading/>} 
       {profile.userType === 'student' ? (
         <TeachDash props={profile} />
       ) : profile.userType === 'teacher' ? (
         <TeachDash props={profile} />
-      ) : (
-        <p>User not found</p>
+      ) : (<p></p>
+        
       )}
     </>
   );

@@ -1,6 +1,23 @@
 import React, { useState } from 'react';
 import './examcard.css';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+
+function formatDate(dateString) {
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  };
+
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat('en-US', options).format(date);
+}
+
+
 
 function ExamCard({ exam, onDelete }) {
   const [showQuestions, setShowQuestions] = useState(false);
@@ -8,20 +25,29 @@ function ExamCard({ exam, onDelete }) {
   const toggleQuestions = () => {
     setShowQuestions(prevState => !prevState);
   };
+  const navigate = useNavigate(); // Initialize the navigate function
+  const handleShowResultClick = () => {
+    console.log(exam);
+    navigate(`/exam/result/${exam._id}`); // Navigate to the Result component with the examCode as a parameter
+  };
+  
 
   return (
     <div className="exam-card">
-      <h3 className="exam-title">{exam.title}</h3>
-      <p className="exam-date">Date: {exam.date}</p>
+      
+      <h1 className="exam-title">{exam.title }|<span>{exam.examCode}</span></h1>
+      <h2 className="exam-date">Start At: {formatDate(exam.date)}</h2>
       <p className="exam-duration">Duration: {exam.duration} minutes</p>
-      <p className="exam-code">Exam Code: {exam.examCode}</p>
+
       <p className="exam-created-by">Created By: {exam.createdBy}</p>
       <p className="exam-created-by">Created At: {exam.createdAt}</p>
 
       <button className="toggle-questions-button" onClick={toggleQuestions}>
         {showQuestions ? 'Hide Questions ' : 'Show Questions'}
       </button>
-     
+      <button className="show-result-button" onClick={handleShowResultClick}>
+        Show Result
+      </button>
       <button className="idelete-button" onClick={() => onDelete(exam._id)}>
         <span className="idelete-icon">x </span> 
       </button>
@@ -29,13 +55,13 @@ function ExamCard({ exam, onDelete }) {
       {showQuestions && (
         <ul className="questions-list">
           {exam.questions.map((question, index) => (
-            <li className="question" key={question._id}>
+            <li className="questiont" key={question._id}>
                 
-              <p className="question-text">{index + 1}. {question.text}</p>
-              <ul className="options-list">
+              <p className="ecquestion-text">{index + 1}. {question.text}</p>
+              <ul className="ecoptions-list">
                 {question.options.map((option, optionIndex) => (
                   <li
-                    className={`option ${question.selectedOptionIndex === optionIndex ? 'selected' : ''}`}
+                    className={`ecoption ${question.selectedOptionIndex === optionIndex ? 'ecselected' : ''}`}
                     key={optionIndex}
                   >
                     {option}

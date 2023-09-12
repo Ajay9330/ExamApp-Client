@@ -1,31 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import ExamCard from './Examcard';
-import CreateExam from '../../../exam/Createxam';
 import ConfirmDialog from '../../../conloadcomp/ConfirmDialog';
 import './exams.css'
+import Loading from '../../../Loading';
 
 function Exams() {
   const [exams, setExams] = useState([]);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [selectedExam, setSelectedExam] = useState(null);
+  const [isloading,setloading]=useState(true);
 
   useEffect(() => {
-    // Fetch recent exams
-    fetch('http://localhost:3300/recent-exams', {
-      method: 'GET',
-      credentials: 'include',
-    })
-      .then(response => response.json())
-      .then(data => {
+    const fetchRecentExams = async () => {
+      try {
+        setloading(true);
+        const response = await fetch('http://localhost:3300/recent-exams', {
+          method: 'GET',
+          credentials: 'include',
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to fetch recent exams');
+        }
+  
+        const data = await response.json();
         setExams(data.exams);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error fetching recent exams:', error);
-      });
+      }finally{
+        setloading(false);
+      }
+    };
+  
+    fetchRecentExams();
   }, []);
+  
 
   const deleteExam = async (examId) => {
     try {
+      setloading(true);
       const response = await fetch(`http://localhost:3300/delete-exam/${examId}`, {
         method: 'DELETE',
         credentials: 'include',
@@ -39,6 +52,8 @@ function Exams() {
       }
     } catch (error) {
       console.error('Error deleting exam:', error);
+    }finally{
+      setloading(false);
     }
   };
 
@@ -53,7 +68,7 @@ function Exams() {
       {exams.map(exam => (
         <ExamCard key={exam._id} exam={exam} onDelete={handleDeleteConfirmation} />
       ))}
-
+    {isloading && <Loading/>}
       {showConfirmDialog && (
         <ConfirmDialog
           title="Delete Exam"

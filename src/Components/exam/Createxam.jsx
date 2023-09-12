@@ -4,6 +4,12 @@ import Question from './Question';
 import Loading from '../Loading';
 import Message from '../Message'; // Import the Message component
 
+const getCookie = (name) => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+};
+
 const CreateExam = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isExamCreated, setIsExamCreated] = useState("closed");
@@ -13,7 +19,7 @@ const CreateExam = () => {
     date: '',
     time: '',
     duration: '',
-    createdBy: '',
+    createdBy: getCookie("email"),
   });
   const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState({
@@ -78,7 +84,7 @@ const CreateExam = () => {
         credentials: 'include',
         body: JSON.stringify({
           title: examdetails.title,
-          date: examdetails.date,
+          date: new Date(examdetails.date + "T" + examdetails.time),
           duration: examdetails.duration,
           createdBy: examdetails.createdBy,
           questions: questions.map((q) => ({
@@ -121,9 +127,9 @@ const CreateExam = () => {
   };
   return (
     <>
-    <div className='exam-form'>
-      <h1>Create Exam</h1>
-      <div>
+    <div >
+      <h1 className='createxhead'>Create Exam</h1>
+      <div className='exam-form'>
       <input
           type="text"
           placeholder="Title" // Added title placeholder
@@ -160,7 +166,7 @@ const CreateExam = () => {
         />
       </div>
 
-      {questions.map((question, index) => (
+     <div className='question-cont'> {questions.map((question, index) => (
         <Question
           key={index}
           index={index}
@@ -172,11 +178,13 @@ const CreateExam = () => {
           deleteOption={deleteOption}
           addOption={addOption}
         />
-      ))}
-      <button onClick={addQuestion}>Add Question</button>
+      ))}</div>
+  <div className='ebutton'>
+  <button  onClick={addQuestion}>Add Question</button>
       <button onClick={saveExam} disabled={isLoading}>
         Submit Exam
       </button>
+  </div>
 
 
     </div>

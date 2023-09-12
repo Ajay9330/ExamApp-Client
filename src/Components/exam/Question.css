@@ -1,6 +1,8 @@
 /* Question.css */
 .question {
-    background-color: #fafafa;
+    width: 100%;
+    max-width: 500px;
+    background-color: #616dc1;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -8,21 +10,8 @@
     transition: background-color 0.3s, box-shadow 0.3s;
   }
   
-  .question:hover {
-    background-color: #f5f5f5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .delete-button {
-    font-size: 18px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 6px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+
+
   
   .delete-button:hover {
     background-color: #c0392b;
@@ -37,7 +26,6 @@
     border-radius: 6px;
     font-size: 16px;
     outline: none;
-    transition: background-color 0.3s;
     background-color: #f7f7f7;
     color: #333;
   }

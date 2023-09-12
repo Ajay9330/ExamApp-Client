@@ -1,5 +1,6 @@
 /* CreateExam.css */
 .exam-form {
+  overflow-x: hidden;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -8,18 +9,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.exam-form > div {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+.question-cont{
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .exam-form label {
@@ -44,7 +37,13 @@ h1 {
   color: #999;
 }
 
-.exam-form button {
+.ebutton{
+  display: flex;
+  width: 100%;
+  background-color: #cceac6;
+  justify-content: space-around;
+}
+.ebutton button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -54,7 +53,7 @@ h1 {
   cursor: pointer;
 }
 
-.exam-form button:hover {
+ .ebutton button:hover {
   background-color: #0056b3;
 }
 

@@ -1,13 +1,13 @@
 .exam-card {
- 
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 8px;
-    background-color: #b9f2ec;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
- 
-  }
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  width: 300px;
+  flex: 1 2 300px; /* Apply the flex property here */
+  background-color: #b9f2ec;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
   
 
   .toggle-questions-button{
@@ -20,9 +20,15 @@
     cursor: pointer;
   }
   .exam-title {
-    font-size: 20px;
-    margin: 0;
-    color: #333;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    background-color: #afc6df;
+    color: #000000;
+  }
+  .exam-title span{
+
+  color: #304a67;
   }
   
   .exam-date,
@@ -34,29 +40,56 @@
   }
   
   .questions-list {
+    border: 1px solid;
+    background-color: #80858a;
+    height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 6px;
+    justify-content: center;
     list-style: none;
     padding: 0;
   }
   
-  .question {
+  .questiont {
+    background-color: #91cdcd;
+    justify-content: center;
+    margin: 5;
+    width: 100%;
+    max-width:550px;
     margin: 12px 0;
+    border-radius: 6px;
+    padding: 14px;
   }
   
-  .question-text {
+  .ecquestion-text {
+ 
+    padding: 4px;
+    border-radius: 12px;
+   
     font-weight: bold;
+ 
   }
   
-  .options-list {
+  .ecoptions-list {
+    border-radius:14px ;
+    padding: 5px;
+    background-color:rgb(245, 245, 245);
     list-style: none;
-    padding: 0;
+
     margin-top: 8px;
   }
   
-  .option {
+  .ecoption {
+    background-color: #c9d4e0;
+    padding: 4px;
+    border-radius: 14px;
     margin: 6px 0;
   }
   
-  .selected {
+  .ecselected {
     background-color: #12f328;
   }
   

@@ -1,0 +1,185 @@
+/* StudentExam.css */
+
+.student-exam-container {
+  
+  user-select: none;
+    padding: 10px;
+    background-color: #313030e1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .question-card{
+    border-radius: 5px;
+    height: calc(100vh - 246px);
+    overflow-y: scroll;
+    background-color: #d7edcd;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+    /* background-color: #87c7b8; */
+
+  }
+.excardcont{
+  display: flex;
+  background-color: #7c7d7d63;
+  flex-wrap: wrap;
+}
+  
+  .question-number {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #141313;
+  }
+  .f{
+ 
+    max-width: 900px;
+padding: 5px;
+
+    align-items: center;
+    display: flex;
+    width: 100%;
+  }
+  .options {
+    
+    padding: 15px;
+    margin: 5px;
+    box-shadow: 0px 0px 10px rgb(110, 105, 105);
+    border-radius: 13px;
+    background-color: #beebe4;
+    max-width: 1100px;
+    width: calc(100% - 60px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  
+  .options .soption {
+  
+    display: inline-block;
+    width: 100%;
+    /* max-width: 500px; */
+
+    border: 0px solid #50f533;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  }
+  
+
+.soption:hover{
+  background-color: #939d93;
+}
+  
+  .aselected {
+
+    
+    background-color: #0cc50c;
+    color: #ffffff;
+    border: 1px solid;
+    border-color: #555a55;
+  }
+  
+  .btn-container {
+    background-color: #b3b8b3;
+    margin: auto;
+    /* position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    /* margin-bottom: 20px; */
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .btn-container> button,.ex-card>button {
+    padding: 15px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-container> button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .qgrid{
+    background-color: #838f93;
+    display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+    gap: 4px;
+    padding: 4px;
+    margin-bottom: 5px;
+  }
+  .grid-item {
+    cursor: pointer;
+    width: 35px;
+    border-radius: 50%;
+    height: 35px;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.grid-item:hover{
+    color: rgb(14, 47, 214);
+}
+  .selectedquestion{
+    background-color: chocolate;
+  }
+
+  .btn-container button:active,.exam-card button:hover {
+    background-color: #0b12f0;
+  }
+  /* Add this to your CSS */
+.question-text {
+ margin-bottom: auto;
+
+
+  justify-self: flex-start;
+  background-color: #ccc;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+
+  
+
+
+
+  .options  input[type="radio"] {
+    /* Custom radio button styles */
+    appearance: none;
+    background-color: #f0f5f0; /* Background color when selected */
+    border: 2px solid #0c0d0c; /* Border color */
+    border-radius: 50%;
+    width: 25px; /* Width of the radio button */
+    height: 25px; /* Height of the radio button */
+    margin-right: 10px; /* Spacing between the radio button and text */
+    cursor: pointer;
+  }
+  
+  /* Style the inner dot of the radio button when selected */
+  .options  input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 12px; /* Size of the inner dot */
+    height: 12px; /* Size of the inner dot */
+    background-color: #290ce7; /* Color of the inner dot when selected */
+    border-radius: 50%; /* Shape it into a circle */
+    position: relative;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+  }
+  

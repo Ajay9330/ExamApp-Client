@@ -1,65 +1,104 @@
+/* Main container */
 .profile-container {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
   
-  .profile-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  .profile-info {
-    background-color: white;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+  margin: 14px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.maindetail{
+  align-items: center;
+  background-color: #99ecba;
+  display: flex;
+  flex-direction: column;
+}
+.maindetail img{
+  margin: 15px;
+  box-shadow: 0px 0px 2px 4px sandybrown;
+  border: 1px solid;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+/* Heading */
+.profile-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* Profile information */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* User details section */
+.user-details {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
   .user-details {
-    margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .user-details p {
-    margin: 8px 0;
-  }
-  
-  .user-details strong {
-    font-weight: bold;
-    margin-right: 8px;
-  }
-  
-  /* Styles for student */
-  .student {
-    background-color: #f0f7ff;
-  }
-  
-  .student h2 {
-    color: #3366cc;
-  }
-  
-  .student-card {
-    border: 2px solid #3366cc;
-  }
-  
-  /* Styles for teacher */
-  .teacher {
-    background-color: #f0fff0;
-  }
-  
-  .teacher h2 {
-    color: #008000;
-  }
-  
-  .teacher-card {
-    border: 2px solid #008000;
-  }
-  
-  /* Styles for unknown user type */
-  .unknown {
-    color: #ff0000;
-  }
-  
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 26px;
+  color: #555;
+}
+
+.value {
+  font-size: 26px;
+  color: #333;
+}
+
+/* Styles for student */
+.student {
+  background-color: #f9fcff93;
+}
+
+.student h2 {
+  color: #0049dc;
+}
+
+.student-card {
+  border: 2px solid #3366cc;
+}
+
+/* Styles for teacher */
+.teacher {
+  background-color: #afd1af;
+}
+
+.teacher h2 {
+  color: #008000;
+}
+
+.teacher-card {
+  border: 2px solid #008000;
+}
+
+/* Styles for unknown user type */
+.unknown {
+  color: #ff0000;
+}

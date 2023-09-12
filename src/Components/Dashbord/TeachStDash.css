@@ -9,7 +9,7 @@
 /* Left sidebar */
 .teach-dash-left {
     
-  background-color: #adb1b7;
+  background-color: #adb1b793;
   color: rgb(2, 2, 2);
   width: 78px;
   overflow-x: hidden;
@@ -73,16 +73,21 @@
 
 }
 
+
+
+
 /* Right content */
 .teach-dash-right {
+  
+ 
 /* background-image: url("./media/hbg.jpg") ; */
   height: calc(100vh - 55px);
-  overflow-y: scroll;
+  overflow-y: auto;
 
 }
 
 /* Toggle button */
-.toggle-button {
+.dashtoggle-button {
   background-color: #333;
   color: white;
   border: none;
@@ -138,7 +143,7 @@
   }
   .teach-dash-right {
     grid-column: 1;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 115px);
   }
   .hamburger-button{
     display: none;

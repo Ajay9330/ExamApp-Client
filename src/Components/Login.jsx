@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import Loading from './Loading';
+import Message from './Message';
 
 const Login = ({ setLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('student'); // Default userType
-  const [error, setError] = useState(null); // Error state
+  const [error, setError] = useState(""); // Error state
   const [loading, setLoading] = useState(false); // Loading state
 
   const navigate = useNavigate(); // Declare the navigate function here
@@ -38,7 +39,7 @@ const Login = ({ setLogin }) => {
         setLogin(true);
         // await onLogin(userData);
         navigate('/dashboard'); // Use navigate here to navigate to the root route
-      } else if(response.status==401) {
+      } else if(response.status===401) {
         setError('Invalid email or password.'); // Set the error message
         console.error('Login failed:', response.status, response.statusText);
         // Handle login error here if needed
@@ -61,7 +62,7 @@ const Login = ({ setLogin }) => {
     {loading?<Loading/>:""}
     <div className="login-container">
       <h1>Login</h1>
-      {error && <div className="error-message">{error}</div>}
+      {error && !loading && <Message message={error} onClose={()=>{setError(null)}} />}
       <form onSubmit={handleSubmit}>
         <input
           type="text"

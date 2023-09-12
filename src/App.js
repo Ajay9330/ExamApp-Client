@@ -1,15 +1,18 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './Components/Landing/Home';
+// import Home from './Components/Landing/Home';
 import Login from './Components/Login';
 import NotFound from './Components/NotFound';
 import Dash from './Components/Dashbord/Dash';
 import Loading from './Components/Loading';
-import CreateExam from './Components/exam/Createxam';
 import Header from './Components/Landing/Header';
-import Popup from './Components/Popup';
+import Result from './Components/Dashbord/Dashcomp/teachcomp/Result'
+import ConfirmDialog from './Components/conloadcomp/ConfirmDialog';
+import StudentExam from './Components/Dashbord/Dashcomp/stcomp/StudentExam';
+
 async function logout() {
+  
 
   try {
     const response = await fetch('http://localhost:3300/logout', {
@@ -18,8 +21,7 @@ async function logout() {
     });
     const responseData = await response.json();
     if (response.ok) {
-      // clearAllCookies(); // Call your clearAllCookies function
-      // alert("Successfully Logout");
+
       alert(JSON.stringify(responseData.message)); // Use 'message', not 'messege'
     } else {
       // Handle logout error if needed
@@ -38,6 +40,7 @@ function App() {
   
   const [isloggedin, setLoggedin] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showconfirm,setconfirm]=useState(false);
 
   useEffect(() => {
     const checkLoginStatus = async () => {
@@ -52,7 +55,7 @@ function App() {
         console.log(response.status);
         if (response.ok) {
           setLoggedin(true);
-        } else if(response.status==404) {
+        } else if(response.status===404) {
           setLoggedin(false);
         }
       } catch (error) {
@@ -73,8 +76,8 @@ function App() {
     <>
    {/* {loading?<Loading/>:""} */}
     <div className='App'>
-
-    {isloggedin && <Header onLogout={() => { setLoggedin(false); logout(); }} />}
+    {showconfirm && <ConfirmDialog message={"Do you want to logout?"} onCancel={()=>setconfirm(false)} onConfirm={()=>{setLoggedin(false); logout(); setconfirm(false)} }/>}
+    {isloggedin && <Header onLogout={() =>  setconfirm(true)} />}
       <Router>
         <Routes>
         
@@ -83,13 +86,18 @@ function App() {
             path='/dashboard' 
             element={isloggedin ? <Dash /> : <Navigate to="/login" />}
           />
-           <Route
-             path='/create-exam'
-             element={isloggedin ? <CreateExam /> : <Navigate to='/login' />}
-           />
+          <Route
+            path='/exam/startexam/:examId' // Add a forward slash before :examId
+            element={isloggedin ? <StudentExam /> : <Navigate to='/login' />}
+          />
+
+            <Route
+            path='/exam/result/:examId'
+            element={isloggedin ? <Result/> : <Navigate to='/login' />}
+          />
 
           <Route
-            path='/' exact
+            path='/' 
             // element={isloggedin ? <Home /> : <Navigate to="/login" />}
             element={isloggedin ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
           />

@@ -1,0 +1,144 @@
+/* ResultCard.css */
+
+
+.examresult{
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+  
+    height: calc(100vh - 57px);
+    overflow: auto;
+
+}
+.examresult h2{
+    width: 100%;
+}
+
+.result-card {
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow:0 0 12px 1.3px #007bff;
+    border-radius: 19px;
+    padding: 20px 20px 0px 20px;
+    margin: 20px;
+    background: #f5fefebe; 
+
+    
+  }
+  .answers{
+    background-color: #ffffff;
+    border: 1px solid;
+    padding: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  .t{
+
+    margin: 0px;
+    margin-bottom: 50px;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  .info {
+    font-size: 19px;
+    font-weight: 600;
+    margin: 5px 0;
+  }
+  
+  /* Header Styles */
+  .answers-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Toggle Answers Button Styles */
+  .toggle-button {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .toggle-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Answers Styles */
+  .answers-list {
+    gap: 6px;
+    flex-wrap: wrap;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    justify-content: space-around;
+  
+  }
+  
+  .answer {
+    box-shadow: 0px 0px 9px 2px rgb(0, 0, 0);
+
+  
+    flex: 0.5 3 200px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    padding: 0px 8px;
+    background-color: #fff;
+    border-radius: 16px;
+
+  }
+  
+  .answer-text {
+    
+    margin: 5px 0;
+  }
+  
+  .correct-answer {
+ 
+    font-weight: bold;
+    background-color: rgb(165, 237, 170);
+  }
+  
+  .wrong-answer {
+    font-weight: bold;
+    background-color: rgb(241, 110, 110);
+    color: rgb(5, 3, 24);
+
+  }
+  
+  .options-list {
+    border-radius: 16px;
+    box-shadow: 1px 1px 21px 3px rebeccapurple;
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+   
+    list-style-type: none;
+    margin: 6px;
+  
+  }
+  
+  .optionp {
+    display: block;
+    color: #1a0960;
+    padding: 8px;
+    margin: 5px;
+    border-radius:  18px;
+  }
+  
+  .selected {
+    background-color: #13dc42;
+  }
+  
+  .score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  

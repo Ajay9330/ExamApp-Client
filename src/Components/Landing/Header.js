@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './Eximo.png';
 export default function Header({ onLogout }) {
   const headerStyles = {
-    height:'35px',
+
+    maxHeight:'35px',
     backgroundColor: '#3498db',
     color: 'white',
     padding: '10px 20px 10px 8px',
