@@ -99,10 +99,7 @@ function TeachStDash({ props }) {
             <span className="link-icon"><img src={lex} alt="" /></span>
             {isLeftActive && <span className="link-label">Exams</span>}
           </li>
-          <li onClick={() => handleLinkClick('search-student-teacher')} className={selectedLink === 'search-student-teacher' ? 'active' : ''}>
-            <span className="link-icon"><img src={lsrch} alt="" /></span>
-            {isLeftActive && <span className="link-label">Search Student/Teacher</span>}
-          </li>
+       
           </>}
 
         </ul>

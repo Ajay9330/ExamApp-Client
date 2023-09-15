@@ -31,7 +31,7 @@ function Result() {
 
   return (
     <div className='examresult'>
-      <h2>Exam Result for Exam ID: {examId}</h2>
+      <h3>Exam Result for Exam ID: {examId}</h3>
       {isLoading ? (
         <p>Loading...</p>
       ) : examResult ? (

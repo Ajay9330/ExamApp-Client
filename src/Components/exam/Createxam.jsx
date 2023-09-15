@@ -128,7 +128,7 @@ const CreateExam = () => {
   return (
     <>
     <div >
-      <h1 className='createxhead'>Create Exam</h1>
+
       <div className='exam-form'>
       <input
           type="text"

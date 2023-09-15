@@ -84,7 +84,7 @@ function AddUser() {
 
   return (<>
     <div className="add-user-container">
-      <h2>Add User</h2>
+     
       <div>
         <label>User Type:</label>
         <select value={userDetails.userType} onChange={(e) => handleChange('userType', e.target.value)}>

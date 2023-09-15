@@ -10,8 +10,14 @@
     overflow: auto;
 
 }
-.examresult h2{
+.examresult h3{
+  margin-top: 0;
+  text-align: center;
+  top:0;
+  position: sticky;
     width: 100%;
+    height: 25px;
+    background-color: #ccc;
 }
 
 .result-card {
@@ -21,31 +27,43 @@
     border-radius: 19px;
     padding: 20px 20px 0px 20px;
     margin: 20px;
-    background: #f5fefebe; 
+    background: #f5fefe8a; 
 
     
   }
+
   .answers{
     background-color: #ffffff;
-    border: 1px solid;
-    padding: 4px;
-    max-height: 200px;
+    border-radius: 2px;
+    padding: 14px;
+    max-height: 300px;
     overflow-y: auto;
   }
   .t{
 
     margin: 0px;
     margin-bottom: 50px;
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
   }
-  
-  .info {
-    font-size: 19px;
-    font-weight: 600;
-    margin: 5px 0;
+
+  .info-label {
+
+    display: inline;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
   }
   
+  .info-value {
+    color: #002afc;
+    display: inline;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2em;
+    font-weight: 700; /* Bold */
+  }
   /* Header Styles */
   .answers-title {
     font-size: 1.2rem;
@@ -54,19 +72,7 @@
     margin-bottom: 10px;
   }
   
-  /* Toggle Answers Button Styles */
-  .toggle-button {
-    margin-top: 20px;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .toggle-button:hover {
-    background-color: #0056b3;
-  }
+
   
   /* Answers Styles */
   .answers-list {
@@ -93,20 +99,20 @@
   }
   
   .answer-text {
-    
+padding: 5px;
     margin: 5px 0;
   }
   
   .correct-answer {
  
     font-weight: bold;
-    background-color: rgb(165, 237, 170);
+    background-color: rgb(0, 253, 17);
   }
   
   .wrong-answer {
     font-weight: bold;
-    background-color: rgb(241, 110, 110);
-    color: rgb(5, 3, 24);
+    background-color: rgb(246, 0, 0);
+    color: rgb(255, 255, 255);
 
   }
   

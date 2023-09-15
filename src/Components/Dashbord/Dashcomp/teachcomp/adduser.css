@@ -10,11 +10,11 @@ background-color: #6764645d;
   justify-content: center;
   width: 100%;
   gap: 6px;
-  height: 75.7vh;
-  overflow-y: auto;
-  margin: 0 auto;
+
+
+  margin: 0px auto;
   padding: 20px;
-  border: 1px solid #ccc;
+
   border-radius: 5px;
 }
 
@@ -43,6 +43,7 @@ background-color: #6764645d;
   width: 85%;
   padding: 8px;
   margin-bottom: 10px;
+  border-radius: 45px;
 }
 
 .add-user-container button {

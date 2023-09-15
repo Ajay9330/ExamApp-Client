@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import './studentexam.css';
 import QuestionCard from './QuestionCard';
 import Loading from '../../../Loading';
 import Message from '../../../Message';
+import Waiting from '../../../Waiting';
 function StudentExam() {
   const { examId } = useParams();
   const [exam, setExam] = useState(null);
@@ -12,7 +13,25 @@ function StudentExam() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isloading,setloading]=useState(false);
   const [message,setmessage]=useState('');
+  const [remainingTime, setRemainingTime] = useState(1 * 30);
+  const [exdate,setexdate]=useState(null);
+
+  const[iswating,setiswaiting]=useState(true);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setRemainingTime(prevTime => prevTime > 0 ? prevTime - 1 : 0);
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
   
+
+  // Convert remainingTime to a human-readable format (e.g., MM:SS)
+  const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
+  const seconds = (remainingTime % 60).toString().padStart(2, '0');
+  const formattedTime = `${minutes}:${seconds}`;
 
   useEffect(() => {
     const fetchExam = async () => {
@@ -25,9 +44,14 @@ function StudentExam() {
         if (response.ok) {
           setExam(data);
           console.log(data)
+          setRemainingTime(data.duration*60);
           // Initialize selectedOptionIndexes array with -1 for each question
           setSelectedOptionIndexes(Array(data.questions.length).fill(-1));
         } else {
+          if(response.status===400){
+            setexdate(data.date);
+            setiswaiting(true);
+          }
           setmessage(data.error);
           console.error('Error fetching exam:', response.statusText);
         }
@@ -119,7 +143,8 @@ useEffect(() => {
       const d=await response.json();
       if (response.ok) {
         // Handle success
-        setmessage('Exam subumitted Sucessfully'); // Clear the error message
+        setmessage('Exam subumitted Sucessfully');
+        window.location.reload();  // Clear the error message
       } else {
         setmessage(d.error);
         console.error('Error submitting exam:', response.statusText);
@@ -142,8 +167,14 @@ useEffect(() => {
   return (
     <>{(isloading || isSubmitting)&&<Loading/>}
       {!isloading && message!=="" && <Message onClose={()=>{setmessage("");}} message={message} />}
-
-      {exam &&    <><h2>{exam.title+"|"+exam.examCode}</h2>
+      {iswating && <Waiting startTime={new Date(exdate)} />}
+      {exam &&    <>
+      <div className='exBar'><h2>{exam.title+"|"+exam.examCode}</h2>
+      <div className="timer">
+        <span>Remaining Time:</span>
+        <span>{formattedTime}</span>
+      </div>
+      </div>
       <div className="student-exam-container">
         <div className="qgrid">
           {exam.questions.map((question, index) => (

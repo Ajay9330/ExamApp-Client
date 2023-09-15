@@ -1,8 +1,10 @@
 .exam-card {
+ 
   border: 1px solid #ccc;
   padding: 20px;
   margin: 20px;
   border-radius: 8px;
+  max-width: 550px;
   width: 300px;
   flex: 1 2 300px; /* Apply the flex property here */
   background-color: #b9f2ec;
@@ -10,9 +12,10 @@
 }
   
 
-  .toggle-questions-button{
+  .toggle-questions-button ,.result{
     margin: 10px;
-    padding: 5px 10px;
+    padding: 10px 10px;
+    font-size: large;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
@@ -35,7 +38,9 @@
   .exam-duration,
   .exam-code,
   .exam-created-by {
+    font-family:'Times New Roman', Times, serif;
     margin: 6px 0;
+    font-size: larger;
     color: #080707;
   }
   
@@ -98,7 +103,7 @@
   }
   
   .idelete-button {
-
+    margin-top: 15px;
     float: right;
     background-color: #ff0000;
     color: #fff;
@@ -106,8 +111,6 @@
     border-radius: 5px;
     padding: 8px 16px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
     transition: background-color 0.2s;
     font-family: 'Arial', sans-serif;
     font-size: 14px;

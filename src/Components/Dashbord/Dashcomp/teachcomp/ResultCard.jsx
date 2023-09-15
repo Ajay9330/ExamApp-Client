@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 function ResultCard({ result }) {
   const [showAnswers, setShowAnswers] = useState(false);
 
+
   const toggleAnswers = () => {
     setShowAnswers(!showAnswers);
   };
@@ -11,23 +12,48 @@ function ResultCard({ result }) {
   return (
 <div className={`result-card ${!showAnswers ? "t" : ""}`}>
 
-      <p className="info">Student Name: {result.studentName}</p>
-      <p className="info">Correct Answers: {result.score}</p>
-      <p className="info">Student Seat: {result.studentSeat}</p>
-      <p className="info">Exam Start Time: {new Date(result.examStartAt).toLocaleString()}</p>
-      <p className="info">Submitted At: {new Date(result.submittedAt).toLocaleString()}</p>
-      <p className="info">Student Class: {result.studentClass}</p>
 
-      <button className="toggle-button" onClick={toggleAnswers}>
+<div className="info-item">
+        <p className="info-label">Student Name:</p>
+        <span className="info-value">{result.studentName}</span>
+      </div>
+
+      <div className="info-item">
+        <p className="info-label">Correct Answers:</p>
+        <p className="info-value">{result.score}</p>
+      </div>
+
+      <div className="info-item">
+        <p className="info-label">Student Seat:</p>
+        <p className="info-value">{result.studentSeat}</p>
+      </div>
+
+      <div className="info-item">
+        <p className="info-label">Exam Start Time:</p>
+        <span className="info-value">{new Date(result.examStartAt).toLocaleString()}</span>
+      </div>
+
+      <div className="info-item">
+        <p className="info-label">Submitted At:</p>
+        <p className="info-value">{new Date(result.submittedAt).toLocaleString()}</p>
+      </div>
+
+      <div className="info-item">
+        <p className="info-label">Student Class:</p>
+        <p className="info-value">{result.studentClass}</p>
+      </div>
+ 
+
+      <button className="result" onClick={toggleAnswers}>
         {showAnswers ? 'Hide Answers' : 'Show Answers'}
       </button>
 
       {showAnswers && (
-        <div className="answers">
+        <div  className="answers">
           <h4 className="answers-title">Answers</h4>
           <ul className="answers-list">
             {result.answers.map((answer, index) => (
-              <li
+              <li 
                 className={`answer ${answer.isCorrect ? 'correct-answer' : 'wrong-answer'}`}
                 key={answer.questionId}
               >

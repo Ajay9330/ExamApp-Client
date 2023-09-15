@@ -27,7 +27,7 @@ function StExam() {
 
   return (
     <div>
-      <div>
+      <div className='stexamsec'>
         <h3>Today's Exams</h3>
         {allExams.today && allExams.today.length > 0 ? (
           <StExCard exams={allExams.today} />
@@ -35,7 +35,7 @@ function StExam() {
           <p>No exams today</p>
         )}
       </div>
-      <div>
+      <div className='stexamsec'>
         <h3>Upcoming Exams</h3>
         {allExams.upcoming && allExams.upcoming.length > 0 ? (
           <StExCard exams={allExams.upcoming} />
@@ -43,7 +43,7 @@ function StExam() {
           <p>No upcoming exams</p>
         )}
       </div>
-      <div>
+      <div className='stexamsec'>
         <h3>Past Exams</h3>
         {allExams.past && allExams.past.length > 0 ? (
           <StExCard exams={allExams.past} />

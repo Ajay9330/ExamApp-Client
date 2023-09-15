@@ -1,10 +1,22 @@
 /* StudentExam.css */
 
+
+.stexamsec{
+  background-color: #e6ede53a;
+}
+
+.stexamsec h3{
+  font-size: 1.5em;
+  background-color: #fff;
+  margin-bottom: 0px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .student-exam-container {
-  
+  margin-top: 0px;
   user-select: none;
     padding: 10px;
-    background-color: #313030e1;
+    background-color: #31303082;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
@@ -13,7 +25,7 @@
     border-radius: 5px;
     height: calc(100vh - 246px);
     overflow-y: scroll;
-    background-color: #d7edcd;
+    /* background-color: #d7edcd; */
     display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +33,7 @@
 
   }
 .excardcont{
+  justify-content: space-around;
   display: flex;
   background-color: #7c7d7d63;
   flex-wrap: wrap;
@@ -110,17 +123,27 @@ padding: 5px;
   }
   
   .qgrid{
+    border-radius: 13px;
+    margin-top:-10px ;
     background-color: #838f93;
     display: flex;
   flex-direction: row;
+  flex-flow: row;
   overflow-x: auto;
     gap: 4px;
     padding: 4px;
     margin-bottom: 5px;
   }
+
+  /* Style the scrollbar */
+
+
+
+
+
   .grid-item {
     cursor: pointer;
-    width: 35px;
+    min-width: 35px;
     border-radius: 50%;
     height: 35px;
     background-color: bisque;
@@ -136,7 +159,7 @@ padding: 5px;
     background-color: chocolate;
   }
 
-  .btn-container button:active,.exam-card button:hover {
+  .btn-container button:active ,.result:active {
     background-color: #0b12f0;
   }
   /* Add this to your CSS */
@@ -183,3 +206,12 @@ padding: 5px;
     transform: translate(-50%, -50%);
   }
   
+
+  .exBar{
+    height: 70px;
+    background-color: #ffffff;
+    margin:-0px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }

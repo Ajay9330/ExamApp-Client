@@ -20,3 +20,7 @@ background-size: cover;
     background-position: 100% 50%;
   }
 }
+.hidden{
+  transition: all 2s;
+  display: none;
+}

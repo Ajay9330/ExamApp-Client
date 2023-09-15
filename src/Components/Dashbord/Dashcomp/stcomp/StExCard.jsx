@@ -25,7 +25,7 @@ function StExCard({ exams }) {
           <p className="exam-duration">Duration: {exam.duration} minutes</p>
           <p className="exam-created-by">Created By: {exam.createdBy}</p>
           <p className="exam-created-at">Created At: {formatDate(exam.createdAt)}</p>
-          <button  onClick={() => handleStartExam(exam._id)}>Start Exam</button>
+          <button className='result' onClick={() => handleStartExam(exam._id)}>Start Exam</button>
         </div>
       ))}
     </div>

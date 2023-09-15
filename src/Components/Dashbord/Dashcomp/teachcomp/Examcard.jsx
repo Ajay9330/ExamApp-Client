@@ -27,7 +27,7 @@ function ExamCard({ exam, onDelete }) {
   };
   const navigate = useNavigate(); // Initialize the navigate function
   const handleShowResultClick = () => {
-    console.log(exam);
+    // console.log(exam);
     navigate(`/exam/result/${exam._id}`); // Navigate to the Result component with the examCode as a parameter
   };
   
@@ -40,17 +40,18 @@ function ExamCard({ exam, onDelete }) {
       <p className="exam-duration">Duration: {exam.duration} minutes</p>
 
       <p className="exam-created-by">Created By: {exam.createdBy}</p>
-      <p className="exam-created-by">Created At: {exam.createdAt}</p>
-
-      <button className="toggle-questions-button" onClick={toggleQuestions}>
+      <p className="exam-created-by">Created At: {formatDate(exam.createdAt)}</p>
+      <div>
+      <button className="result" onClick={toggleQuestions}>
         {showQuestions ? 'Hide Questions ' : 'Show Questions'}
       </button>
-      <button className="show-result-button" onClick={handleShowResultClick}>
+      <button className="show-result-button result" onClick={handleShowResultClick}>
         Show Result
       </button>
       <button className="idelete-button" onClick={() => onDelete(exam._id)}>
         <span className="idelete-icon">x </span> 
       </button>
+      </div>
      
       {showQuestions && (
         <ul className="questions-list">
