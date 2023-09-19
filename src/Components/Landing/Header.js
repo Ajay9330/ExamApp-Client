@@ -5,6 +5,7 @@ export default function Header({ onLogout }) {
 
     maxHeight:'35px',
     backgroundColor: '#3498db',
+    // backgroundColor: '#020002',
     color: 'white',
     padding: '10px 20px 10px 8px',
     display: 'flex',

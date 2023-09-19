@@ -10,7 +10,7 @@ function ResultCard({ result }) {
   };
 
   return (
-<div className={`result-card ${!showAnswers ? "t" : ""}`}>
+<div className={`result-card ${showAnswers ? "t" : ""}`}>
 
 
 <div className="info-item">

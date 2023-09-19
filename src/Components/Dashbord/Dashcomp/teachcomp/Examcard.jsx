@@ -53,8 +53,8 @@ function ExamCard({ exam, onDelete }) {
       </button>
       </div>
      
-      {showQuestions && (
-        <ul className="questions-list">
+      {true && (
+        <ul className={`questions-list ${showQuestions ? 'show' : ''}`}>
           {exam.questions.map((question, index) => (
             <li className="questiont" key={question._id}>
                 
