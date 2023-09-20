@@ -17,7 +17,50 @@ background-color: #6764645d;
 
   border-radius: 5px;
 }
+.flex-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow flex items to wrap onto multiple lines */
+}
 
+.addimg img{
+  margin: auto;
+  display: block;
+  width: 19vw;
+  max-width: 200px;
+}
+
+.addimg {
+  box-shadow: 5px 0px 8px 1px rgb(42, 43, 42),0px 0px 12px 6px rgb(255, 255, 255) ;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 5px;
+  width: 21vw; /* Adjust the width and height as needed */
+  height: 21vw;
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden; /* Clip the image to the defined dimensions */
+  overflow: hidden;
+  background-color: rgb(173, 190, 190);
+  animation: imganim 3s   infinite forwards;
+}
+/*just for fun animation*/
+/* @keyframes imganim{
+  0%{
+    box-shadow: 5px 0px 8px 1px green,0px 0px 12px 6px rgb(255, 255, 255) ;
+  }
+  25%{
+    box-shadow: 0px 5px 8px 1px green,0px 0px 12px 6px rgb(255, 255, 255) ;
+  }
+  50%{
+    box-shadow: -5px 0px 8px 1px green,0px 0px 12px 6px rgb(255, 255, 255) ;
+  }
+  75%{
+    box-shadow: 0px -5px 8px 1px green,0px 0px 12px 6px rgb(255, 255, 255) ;
+  }
+  100%{
+    box-shadow: 5px 0px 8px 1px green,0px 0px 12px 6px rgb(255, 255, 255) ;
+  }
+} */
 .add-user-container label {
   text-align: center;
   width: 90px;

@@ -15,7 +15,7 @@ function SearchUser() {
       setIsLoading(true);
 
       const encodedSearchQuery = encodeURIComponent(searchQuery);
-      const response = await fetch(`http://localhost:3300/search-user?q=${encodedSearchQuery}`, {
+      const response = await fetch(process.env.REACT_APP_apiurl+`/search-user?q=${encodedSearchQuery}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ function SearchUser() {
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Enter search query"
         />
-        <button onClick={handleSearch} disabled={isLoading}>
+        <button className='srchbtn' onClick={handleSearch} disabled={isLoading}>
           Search
         </button>
       </div>

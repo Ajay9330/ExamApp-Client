@@ -34,7 +34,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
-  .search-user-container button {
+  .srchbtn{
     display: inline-block;
     padding: 12px 24px;
     font-size: 18px;
@@ -46,7 +46,7 @@
     transition: background-color 0.3s ease;
   }
   
-  .search-user-container button:hover {
+  .srchbtn:hover {
     background-color: #0056b3;
   }
   
@@ -74,6 +74,29 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
+  .user-card-email{
+    flex-wrap: wrap;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .searchimg{
+    min-width: 45px;
+    min-height: 45px;
+    max-width: 100px;
+    max-height: 100px;
+
+
+    background-color: #007bff;
+  }
+  .searchimg img{
+    min-width: 45px;
+    min-height: 45px;
+    max-width: 100px;
+   
+  }
   .user-card p {
     margin: 10px 0;
     color: #0a0a0a;

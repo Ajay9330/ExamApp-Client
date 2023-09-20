@@ -3,7 +3,14 @@ import './adduser.css'; // Import your CSS file for styling
 // import Loading from '../../../Loading';
 import Message from '../../../Message';
 
-
+async function readFileAsDataURLAsync(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+    reader.readAsDataURL(file);
+  });
+}
 
 function AddUser() {
   const [userDetails, setUserDetails] = useState({
@@ -28,7 +35,9 @@ function AddUser() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({});
-
+  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
+  
   const handleChange = (field, value) => {
     setUserDetails((prevDetails) => ({
       ...prevDetails,
@@ -36,17 +45,65 @@ function AddUser() {
     }));
   };
 
+  const handleImageUpload = async (e) => {
+    // e.preventDefault(); // Prevent default browser behavior
+    const file = e.target.files[0];
+    if (file) {
+      try {
+      // Check image size (approximate limit: 500KB)
+      const maxSizeInBytes = 560000; // 520KB
+      if (file.size > maxSizeInBytes) {
+        alert('Image size exceeds the limit (approx. 500KB). Please choose a smaller image.');
+        setImage(null);
+        setImageUrl("");
+        e.target.value = null; 
+        return;
+      }
+        const dataUrl = await readFileAsDataURLAsync(file);
+        // Extract base64 data
+        const base64Data = dataUrl.split(',')[1];
+        // Store base64Data in your database
+        console.log('Base64 representation of the image:', base64Data);
+        setImage(file);
+        setImageUrl(dataUrl);
+      } catch (error) {
+        console.error('Error converting image to base64:', error.message);
+      }
+    } else {
+      setImage(null);
+      setImageUrl('');
+      alert('No file selected.');
+    }
+  };
+  
+
   const handleSubmit = async () => {
     try {
-      setIsLoading(true);
+      if (!image) {
+        alert('Please select an image.');
+        return;
+      }
+  
+      // Combine the image and userDetails in a JavaScript object
+      const requestData = {
+     userDetails,
+     imageUrl, // Include the image data
+      };
 
-      const response = await fetch('http://localhost:3300/add-user', {
+  
+      // Stringify the JavaScript object to JSON
+      const requestBody = JSON.stringify(requestData);
+      console.log(requestData);
+  
+      setIsLoading(true);
+  
+      const response = await fetch(process.env.REACT_APP_apiurl+'/add-user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(userDetails),
+        body: requestBody,
       });
 
       const data = await response.json();
@@ -71,6 +128,7 @@ function AddUser() {
           age:Number,
           mainsubject:''
         });
+        setImageUrl("");
       } else {
         setMessage({ type: 'error', text: data.error });
       }
@@ -83,8 +141,9 @@ function AddUser() {
   };
 
   return (<>
+     <div className='addimg'>  {imageUrl && <img  src={imageUrl}  alt="Preview" />}</div>
     <div className="add-user-container">
-     
+       
       <div>
         <label>User Type:</label>
         <select value={userDetails.userType} onChange={(e) => handleChange('userType', e.target.value)}>
@@ -97,6 +156,13 @@ function AddUser() {
         <label>Name:</label>
         <input type="text" value={userDetails.name} onChange={(e) => handleChange('name', e.target.value)} />
       </div>
+
+      <div>
+  <label>Profile Image:</label>
+  <input type="file" accept="image/*" onChange={handleImageUpload} />
+
+</div>
+
 
       <div>
         <label>Email:</label>

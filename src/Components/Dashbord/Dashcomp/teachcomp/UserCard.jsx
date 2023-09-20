@@ -3,9 +3,20 @@ import React from 'react';
 
 
 function UserCard({ user }) {
-  return (
+  return (<>
+  
     <div className="user-card">
-      <p className="user-card-email">Email: {user.email}</p>
+      <div>
+      <button class="idelete-button"><span class="idelete-icon">x </span></button>
+      </div>
+      <p className="user-card-email">Email: {user.email}
+
+      <div className='addimg searchimg'>
+          <img src={user.imageUrl} alt='img'/>
+        </div>
+
+        </p>
+   
       {user.userType === 'student' && (
         <div className="student-info">
           <p>Student ID: {user.studentId}</p>
@@ -24,6 +35,7 @@ function UserCard({ user }) {
         </div>
       )}
     </div>
+    </>
   );
 }
 

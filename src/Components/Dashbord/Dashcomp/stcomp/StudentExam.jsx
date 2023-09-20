@@ -37,7 +37,7 @@ function StudentExam() {
     const fetchExam = async () => {
       try {
         setloading(true);
-        const response = await fetch(`http://localhost:3300/exam/${examId}`, {
+        const response = await fetch(process.env.REACT_APP_apiurl+`/exam/${examId}`, {
           credentials: 'include',
         });
         const data = await response.json();
@@ -128,7 +128,7 @@ useEffect(() => {
       setIsSubmitting(true);
       
       // Send the student's answers to the server
-      const response = await fetch('http://localhost:3300/exam/submit-exam', {
+      const response = await fetch(process.env.REACT_APP_apiurl+'/exam/submit-exam', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

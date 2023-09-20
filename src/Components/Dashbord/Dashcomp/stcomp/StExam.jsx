@@ -7,7 +7,7 @@ function StExam() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3300/exams', {
+        const response = await fetch(process.env.REACT_APP_apiurl+'/exams', {
           credentials: 'include'
         });
 

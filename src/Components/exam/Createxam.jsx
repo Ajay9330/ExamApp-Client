@@ -76,7 +76,7 @@ const CreateExam = () => {
   const saveExam = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('http://localhost:3300/createxams', {
+      const response = await fetch(process.env.REACT_APP_apiurl+'/createxams', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

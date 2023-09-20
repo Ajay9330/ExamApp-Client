@@ -15,7 +15,7 @@ async function logout() {
   
 
   try {
-    const response = await fetch('http://localhost:3300/logout', {
+    const response = await fetch(process.env.REACT_APP_apiurl+'/logout', {
       method: 'post',
       credentials: 'include',
     });
@@ -45,7 +45,7 @@ function App() {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const response = await fetch('http://localhost:3300/verify', {
+        const response = await fetch(process.env.REACT_APP_apiurl+'/verify', {
           method: 'get',
           headers: {
             'Content-Type': 'application/json',
@@ -55,13 +55,13 @@ function App() {
         console.log(response.status);
         if (response.ok) {
           setLoggedin(true);
-        } else if(response.status===404) {
+        } else if(response.status===401) {
           setLoggedin(false);
         }
       } catch (error) {
         console.error('An error occurred while sending the request:', error);
       } finally {
-        setTimeout(()=> setLoading(false),5);
+        setLoading(false);
       }
     };
 
@@ -96,16 +96,16 @@ function App() {
             element={isloggedin ? <Result/> : <Navigate to='/login' />}
           />
 
+       
+          <Route
+            path='/login'
+            element={isloggedin ? <Navigate to='/' /> : <Login setLogin={setLoggedin} />}
+          />
           <Route
             path='/' 
             // element={isloggedin ? <Home /> : <Navigate to="/login" />}
             element={isloggedin ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
           />
-          <Route
-            path='/login'
-            element={isloggedin ? <Navigate to='/' /> : <Login setLogin={setLoggedin} />}
-          />
-
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Router>

@@ -9,7 +9,7 @@ export default function Dash() {
   const[error,seterror]=useState('');
   useEffect(() => {
     // Make the API call to fetch teacher data
-    fetch('http://localhost:3300/profile', {
+    fetch(process.env.REACT_APP_apiurl+'/profile', {
       method: 'GET',
       credentials: 'include',
     })

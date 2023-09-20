@@ -17,7 +17,12 @@ export default function Create() {
         </nav>
 
         {active==="exam" && <CreateExam />}
-        {active==="user" && <div><AddUser /> </div>}
+        {active === "user" && (
+  <div style={{ padding: '20px',display:'flex',justifyContent:'center',flexFlow:'column',alignItems:'center' }}>
+    <AddUser />
+  </div>
+)}
+
         
     </>
   )

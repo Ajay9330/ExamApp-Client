@@ -33,7 +33,7 @@ export default function Header({ onLogout }) {
     <div style={headerStyles}>
     <img src={logo} style={{ width: '35px', fill: '#00aaff',borderRadius: '36px' }} alt="" />
 
-      <h1>Welcome to the Exam App!</h1>
+      <h2>Welcome to the ExamApp!</h2>
       <button style={buttonStyles} onClick={handleLogoutClick}>Logout</button>
     </div>
   );

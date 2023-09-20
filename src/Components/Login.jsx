@@ -25,7 +25,7 @@ const Login = ({ setLogin }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:3300/login', {
+      const response = await fetch(process.env.REACT_APP_apiurl+'/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,6 +51,7 @@ const Login = ({ setLogin }) => {
       console.error('An error occurred while sending the request:', error);
     } finally {
       // Use setTimeout to delay setting loading back to false
+      console.log(process.env.REACT_APP_apiurl);
       setTimeout(() => {
         setLoading(false);
       }, 2000); // 2000 milliseconds delay
@@ -65,6 +66,7 @@ const Login = ({ setLogin }) => {
       {error && !loading && <Message message={error} onClose={()=>{setError(null)}} />}
       <form onSubmit={handleSubmit}>
         <input
+          id='emai'
           type="text"
           placeholder="Email"
           className="input-field"
@@ -72,6 +74,7 @@ const Login = ({ setLogin }) => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          id='pass'
           type="password"
           placeholder="Password"
           className="input-field"
@@ -79,6 +82,8 @@ const Login = ({ setLogin }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <select
+          id='type'
+          title='select'
           className="input-field"
           value={userType}
           onChange={(e) => setUserType(e.target.value)}

@@ -7,7 +7,10 @@ function Profile({ props }) {
       <h2>Welcome, {props.userType === 'student' ? 'Student' : 'Teacher'}!</h2>
       <div className="profile-info">
       <div className="maindetail">
-          <img src={props.imgurl} alt='img'/>
+        <div className='addimg'>
+          <img src={props.imageUrl} alt='img'/>
+        </div>
+       
           <div>
             <span className="label">Name:</span>
             <span className="value">{props.name}</span>

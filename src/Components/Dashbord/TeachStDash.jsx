@@ -10,6 +10,7 @@ import Exams from './Dashcomp/teachcomp/Exams';
 import Create from './Dashcomp/teachcomp/Create';
 import SearchUser from './Dashcomp/teachcomp/search';
 import StExam from './Dashcomp/stcomp/StExam';
+import Result from './Dashcomp/teachcomp/Result';
 
 
 
@@ -50,8 +51,8 @@ function TeachStDash({ props }) {
           return <Profile props={props} />;
         case 'exam':
           return <StExam />;
-        // case 'exams':
-        //   return <Exams />;
+        case 'results':
+          return <Result props={props} />;
         // case 'search-student-teacher':
         //   return <SearchStudentOrTeacher />;
         default:
@@ -95,9 +96,9 @@ function TeachStDash({ props }) {
             <span className="link-icon"><img src={lcre} alt="" /></span>
             {isLeftActive && <span className="link-label">Exam</span>}
           </li>
-          <li onClick={() => handleLinkClick('exams')} className={selectedLink === 'exams' ? 'active' : ''}>
+          <li onClick={() => handleLinkClick('results')} className={selectedLink === 'results' ? 'active' : ''}>
             <span className="link-icon"><img src={lex} alt="" /></span>
-            {isLeftActive && <span className="link-label">Exams</span>}
+            {isLeftActive && <span className="link-label">My Results</span>}
           </li>
        
           </>}

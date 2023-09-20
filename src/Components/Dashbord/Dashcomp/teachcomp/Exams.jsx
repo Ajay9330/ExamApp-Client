@@ -14,7 +14,7 @@ function Exams() {
     const fetchRecentExams = async () => {
       try {
         setloading(true);
-        const response = await fetch('http://localhost:3300/recent-exams', {
+        const response = await fetch(process.env.REACT_APP_apiurl+'/recent-exams', {
           method: 'GET',
           credentials: 'include',
         });
@@ -39,7 +39,7 @@ function Exams() {
   const deleteExam = async (examId) => {
     try {
       setloading(true);
-      const response = await fetch(`http://localhost:3300/delete-exam/${examId}`, {
+      const response = await fetch(process.env.REACT_APP_apiurl+`/delete-exam/${examId}`, {
         method: 'DELETE',
         credentials: 'include',
       });
