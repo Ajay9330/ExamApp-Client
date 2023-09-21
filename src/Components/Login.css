@@ -1,6 +1,7 @@
 .login-container {
+  min-width:   265px;
   width: 50%;
-  flex: 50% 6 1;
+  flex: 265px 6 1;
   margin: auto;
   margin-top: 15vh;
 
@@ -49,8 +50,10 @@
     border-radius: 4px;
   }
   .input-field:focus{
-    background-color: #00080cf0;
+    background-color: #00080cd8;
     color: white;
+    outline: none;
+    border-bottom:2px solid red ;
   }
   .login-button {
     background-color: #007bff;

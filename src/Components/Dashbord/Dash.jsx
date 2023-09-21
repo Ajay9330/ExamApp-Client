@@ -15,7 +15,7 @@ export default function Dash() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data); // Check the contents of the data received from the API
+        //console.log(data); // Check the contents of the data received from the API
         if (data && data.teacherData) {
           setProfile(data.teacherData);
         }else if(data && data.studentData){
@@ -37,7 +37,7 @@ export default function Dash() {
       
   }, []);
 
-  console.log(profile);
+ // console.log(profile);
 
   // Check if profile is empty or undefined
 

@@ -97,8 +97,8 @@ const CreateExam = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log('Exam saved:', data);
+       // const data = await response.json();
+       // console.log('Exam saved:', data);
         setIsExamCreated("sucess");
         setExamDetails({
           title: '',

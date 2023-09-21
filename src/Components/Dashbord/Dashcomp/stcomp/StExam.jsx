@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import StExCard from './StExCard';
+import Loading from '../../../Loading';
 
 function StExam() {
   const [allExams, setExams] = useState([]);
-
+  const[isloading,setloading]=useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -17,8 +18,10 @@ function StExam() {
         } else {
           console.error('Error fetching data:', response.statusText);
         }
+        setloading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
+        setloading(false);
       }
     };
 
@@ -27,6 +30,7 @@ function StExam() {
 
   return (
     <div>
+      {isloading && <Loading/>}
       <div className='stexamsec'>
         <h3>Today's Exams</h3>
         {allExams.today && allExams.today.length > 0 ? (

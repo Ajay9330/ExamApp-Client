@@ -1,13 +1,24 @@
 // UserCard.js
-import React from 'react';
+import React, { useState } from 'react';
+import ConfirmDialog from '../../../conloadcomp/ConfirmDialog';
 
 
-function UserCard({ user }) {
+function UserCard({ user, onDeleteClick }) {
+  const [showconfirm,setconfirm]=useState(false);
+  function deleteusr(){
+    onDeleteClick(user._id,user.userType);
+  }
+
+
+
+
+
   return (<>
-  
-    <div className="user-card">
+      {showconfirm && <ConfirmDialog message={"Do you want to delete user" } onConfirm={()=>{setconfirm(false);deleteusr()}}   onCancel={()=>{setconfirm(false);}}/>}
+ 
+      <div className="user-card">
       <div>
-      <button class="idelete-button"><span class="idelete-icon">x </span></button>
+      <button onClick={()=>{setconfirm(true);}} class="idelete-button"><span class="idelete-icon">x </span></button>
       </div>
       <p className="user-card-email">Email: {user.email}
 

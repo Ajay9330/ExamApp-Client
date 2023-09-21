@@ -93,7 +93,7 @@ function AddUser() {
   
       // Stringify the JavaScript object to JSON
       const requestBody = JSON.stringify(requestData);
-      console.log(requestData);
+     // console.log(requestData);
   
       setIsLoading(true);
   

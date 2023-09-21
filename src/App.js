@@ -82,27 +82,27 @@ function App() {
         <Routes>
         
   
-          <Route
+          <Route exact
             path='/dashboard' 
             element={isloggedin ? <Dash /> : <Navigate to="/login" />}
           />
-          <Route
+          <Route exact
             path='/exam/startexam/:examId' // Add a forward slash before :examId
             element={isloggedin ? <StudentExam /> : <Navigate to='/login' />}
           />
 
-            <Route
+            <Route exact
             path='/exam/result/:examId'
             element={isloggedin ? <Result/> : <Navigate to='/login' />}
           />
 
        
           <Route
-            path='/login'
+            path='/login' exact
             element={isloggedin ? <Navigate to='/' /> : <Login setLogin={setLoggedin} />}
           />
           <Route
-            path='/' 
+            path='/' exact
             // element={isloggedin ? <Home /> : <Navigate to="/login" />}
             element={isloggedin ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
           />

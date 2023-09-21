@@ -43,7 +43,7 @@ function StudentExam() {
         const data = await response.json();
         if (response.ok) {
           setExam(data);
-          console.log(data)
+        //  console.log(data)
           setRemainingTime(data.duration*60);
           // Initialize selectedOptionIndexes array with -1 for each question
           setSelectedOptionIndexes(Array(data.questions.length).fill(-1));
@@ -102,7 +102,7 @@ useEffect(() => {
   };
 
   const handleNextQuestion = () => {
-    console.log('next');
+    //console.log('next');
     if (currentQuestionIndex < exam.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -111,7 +111,7 @@ useEffect(() => {
   };
 
   const handlePreviousQuestion = () => {
-    console.log("hi");
+    //console.log("hi");
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     }

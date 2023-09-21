@@ -3,7 +3,7 @@
     overflow: hidden;
   display: grid;
   grid-template-columns: auto 1fr;
-  height: calc(100vh - 55px);
+
 }
 
 /* Left sidebar */
@@ -82,9 +82,9 @@
 /* Right content */
 .teach-dash-right {
   
- 
+  margin: 5px;
 /* background-image: url("./media/hbg.jpg") ; */
-  height: calc(100vh - 55px);
+  height: calc(100vh - 65px);
   overflow-y: auto;
 
 }
@@ -121,11 +121,14 @@
   }
   
   .teach-dash-left {
- 
+  
+    height: 64px;
     display: flex;
     grid-column: 1;
     grid-row: 2;
     width: 100%;
+    position: fixed;
+    bottom: 0;
     
   }
 
@@ -145,11 +148,14 @@
   
   }
   .teach-dash-right {
-    grid-column: 1;
-    height: calc(100vh - 115px);
+    /* height: calc(100vh - 175px); */
+    grid-column: 1;  margin: 0px;
+    
   }
   .hamburger-button{
     display: none;
   }
- 
+  .mainnav{
+    background-color: aqua;
+  }
 }

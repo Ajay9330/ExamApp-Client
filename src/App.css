@@ -7,10 +7,15 @@ background-size: cover;
   /* background-image: radial-gradient(circle, #d0cfc9, #1e211e, #323231);
   background-size: 100% 150%; */
 
+    overflow: auto; /* Hide scrollbar */
+      scroll-behavior: smooth; /* Enable smooth scrolling for the entire page */
+
   /* Add animation */
   /* animation: gradientAnimation 5s linear alternate infinite; */
 }
-
+*{
+  transition: .2s linear
+}
 /* Define the animation keyframes */
 @keyframes gradientAnimation {
   0% {

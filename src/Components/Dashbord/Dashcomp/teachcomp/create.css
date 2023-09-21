@@ -1,5 +1,6 @@
 .create-nav {
-  top:0;
+  margin: 0px;
+
     position: sticky;
     width: 100%;
     background-color: #cabfbf;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ResultCard from './ResultCard';
 import './result.css';
+import Loading from '../../../Loading';
 function Result({props}) {
   // Get the examId from the URL parameter
   const { examId } = useParams();
@@ -19,7 +20,7 @@ function Result({props}) {
         }
 
         const data = await response.json();
-        console.log(data);
+       // console.log(data);
         setExamResult(data);
         setIsLoading(false);
       } catch (error) {
@@ -29,12 +30,12 @@ function Result({props}) {
     };
   
     fetchExamResult();
-  }, [examId]);
+  }, [examId,props]);
   
 
   return (
     <div className='examresult'>
-   
+      {isLoading && <Loading/>}
       <h3>   ({examId?examId:props._id})</h3>
       {isLoading ? (
         <p>Loading...</p>
