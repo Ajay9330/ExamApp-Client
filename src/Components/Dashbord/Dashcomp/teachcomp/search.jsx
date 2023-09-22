@@ -75,7 +75,7 @@ function SearchUser() {
 
   return (<>
     {isLoading&&<Loading/>}
-    <h2 className='head'>Search User</h2>
+    {/* <h2 className='head'>Search User</h2> */}
     <div className="search-user-container">
     {error!=null &&<Message message={error[0]} type={error[1]} onClose={()=>{setError(null)}}/>}
     

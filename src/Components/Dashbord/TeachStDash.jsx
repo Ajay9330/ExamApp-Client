@@ -77,7 +77,7 @@ function TeachStDash({ props }) {
           {props.userType==='teacher' && <>
           <li onClick={() => handleLinkClick('create-exam')} className={selectedLink === 'create-exam' ? 'active' : ''}>
             <span className="link-icon"><img src={lcre} alt="" /></span>
-            {isLeftActive && <span className="link-label">Create Exam</span>}
+            {isLeftActive && <span className="link-label">Create/Add</span>}
           </li>
           <li onClick={() => handleLinkClick('exams')} className={selectedLink === 'exams' ? 'active' : ''}>
             <span className="link-icon"><img src={lex} alt="" /></span>
@@ -85,7 +85,7 @@ function TeachStDash({ props }) {
           </li>
           <li onClick={() => handleLinkClick('search-student-teacher')} className={selectedLink === 'search-student-teacher' ? 'active' : ''}>
             <span className="link-icon"><img src={lsrch} alt="" /></span>
-            {isLeftActive && <span className="link-label">Search Student/Teacher</span>}
+            {isLeftActive && <span className="link-label">Search Users</span>}
           </li>
           </>}
 

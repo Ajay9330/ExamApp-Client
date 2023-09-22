@@ -73,7 +73,7 @@ padding: 5px;
     display: inline-block;
     width: 100%;
     /* max-width: 500px; */
-
+    padding:6px;
     border: 0px solid #50f533;
     border-radius: 5px;
     cursor: pointer;
@@ -96,6 +96,7 @@ padding: 5px;
   }
   
   .btn-container {
+    height: 60px;
     background-color: #b3b8b3;
     margin: auto;
     position: fixed;
@@ -105,9 +106,11 @@ padding: 5px;
     /* margin-bottom: 20px; */
     display: flex;
     justify-content: space-around;
+    align-items: center;
   }
   
   .btn-container> button,.ex-card>button {
+    height: 45px;
     padding: 15px 20px;
     background-color: #007bff;
     color: #fff;

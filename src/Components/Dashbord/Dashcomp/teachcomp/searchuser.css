@@ -1,13 +1,22 @@
 /* SearchUser.css */
 
+@media (max-width: 768px) {
+
+  .teach-dash-right .search-user-container{
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+
+
 /* Container */
 .search-user-container {
-
+  justify-content: center;
     display: flex;
     flex-direction: column;
-    width: calc(100%-50px);
     margin: 0 auto;
-    padding: 30px;
+    padding: 25px;
     border-radius: 10px;
  
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -22,21 +31,36 @@
     color: #333;
     background-color: #d1f5d1;
   }
-  
+  .search-input{
+    display: flex;
+    justify-content: space-between;
+  }
   /* Search input and button */
   .search-user-container input[type="text"] {
-    width: 100%;
+    margin-top: 3px;
+    width: calc(160px);
     padding: 12px;
     font-size: 18px;
     border: none;
-    border-radius: 5px;
-    background-color: #fff;
+    border-radius: 25px;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
+  .search-input input:focus{
+    border-radius:25px 0px 0px 25px;
+    background-color: #2c2c2cae;
+    width: calc(100% - 126px);
+   caret-color: #fff;
+   color: #d1f5d1;
+   caret-shape:block;
+    outline: none;
+    border:2px solid black ;
+  }
   .srchbtn{
+    width: 100px;
     display: inline-block;
     padding: 12px 24px;
+    margin: 5px;
     font-size: 18px;
     background-color: #007bff;
     color: #fff;
@@ -52,7 +76,7 @@
   
   /* User card list */
   .user-card-list {
-    justify-content: center;
+    justify-content: space-around;
     background-color: #474a475d;
     display: flex;
     flex-wrap: wrap;
@@ -64,12 +88,12 @@
   .user-card {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    flex: 1 5 353px;
+    max-width: 350px;
+    flex: 250px 1 5;
     background-color: #fff;
     border: 1px solid #ccc;
-    margin: 20px;
-    padding: 20px;
+    margin: 15px;
+    padding: 0px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }

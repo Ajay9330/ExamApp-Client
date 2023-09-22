@@ -84,7 +84,7 @@
   
   margin: 5px;
 /* background-image: url("./media/hbg.jpg") ; */
-  height: calc(100vh - 65px);
+  height: calc(100vh - 70px);
   overflow-y: auto;
 
 }
@@ -148,7 +148,7 @@
   
   }
   .teach-dash-right {
-    /* height: calc(100vh - 175px); */
+    height: calc(100vh - 120px); 
     grid-column: 1;  margin: 0px;
     
   }
