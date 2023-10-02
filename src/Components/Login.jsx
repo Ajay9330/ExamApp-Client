@@ -50,11 +50,9 @@ const Login = ({ setLogin }) => {
       setError('An error occurred while sending the request.');
       console.error('An error occurred while sending the request:', error);
     } finally {
-      // Use setTimeout to delay setting loading back to false
-     // console.log(process.env.REACT_APP_apiurl);
-      setTimeout(() => {
+
         setLoading(false);
-      }, 2000); // 2000 milliseconds delay
+ 
     }
   };
 
