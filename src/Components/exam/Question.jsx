@@ -13,10 +13,14 @@ const Question = ({
   addOption
 }) => (
   <div className="question" key={index}>
+    <div >
     <button className="delete-button" onClick={() => deleteQuestion(index)}>
       &#10005; {/* Delete icon using a Unicode symbol */}
-    </button>
+    </button>    <span >{index+1}</span>
+    </div>
+  
     <div>
+  
       <input
         type="text"
         placeholder="Question text"

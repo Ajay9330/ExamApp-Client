@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
+
 import './CreateExam.css';
 import Question from './Question';
 import Loading from '../Loading';
-import Message from '../Message'; // Import the Message component
-
-const getCookie = (name) => {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
-};
-
+import Message from '../Message'; 
+import {getCookie,getqestionFromxl} from './exOpr';
 const CreateExam = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isExamCreated, setIsExamCreated] = useState("closed");
@@ -27,6 +22,18 @@ const CreateExam = () => {
     options: ['Option 1', 'Option 2'],
     selectedOptionIndex: 0,
   });
+
+
+  const handleFileUpload = async (e) => {
+    try {
+      const formattedQuestions = await getqestionFromxl(e);
+      console.log('Formatted Questions:', formattedQuestions);
+      setQuestions(formattedQuestions);
+    } catch (error) {
+      console.error('Error handling file upload:', error);
+    }
+  };
+
 
   const deleteQuestion = (index) => {
     const updatedQuestions = [...questions];
@@ -164,6 +171,9 @@ const CreateExam = () => {
           value={examdetails.duration}
           onChange={(e) => setExamDetails({ ...examdetails, duration: e.target.value })}
         />
+        <div>
+        <input type="file" accept=".xlsx, .xls, .csv" onChange={handleFileUpload} />
+          </div>
       </div>
 
      <div className='question-cont'> {questions.map((question, index) => (
