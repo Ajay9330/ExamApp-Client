@@ -1,7 +1,7 @@
 body {
   /* Set initial background color */
-  background-color: bisque;
-  background-image: url('./Components/Dashbord/media/body.png');
+  background-color: rgb(12, 12, 12);
+  /* background-image: url('./Components/Dashbord/media/body.png'); */
 background-size: cover;
   /* Create a gradient background with animation */
   /* background-image: radial-gradient(circle, #d0cfc9, #1e211e, #323231);

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './Eximo.png';
+import logo from './Home.svg';
 import './header.css'; // Import the CSS file
 
 export default function Header({ onLogout }) {

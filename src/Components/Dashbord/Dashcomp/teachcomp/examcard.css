@@ -130,4 +130,28 @@
     margin: auto;
 
   }
+  .exp svg{
+    height: 50px;
+    zoom: 1;
+    width: 50px;
+    stroke-width: 40px;
+  }
+  .exp{
+display: flex;
+    background-color: rgba(178, 34, 34, 0);
+    stroke: #12f328;
+    stroke-dashoffset: 50px;
+    background-color: #000000;
+    border: none;
+  }
+  .exp:hover{
+    cursor: pointer;
+     
+    background-color: #12f328;
+    border-radius:40% ;
+  }
+  .exp:active{
   
+    background-color: #12f328;
+    border-radius:50% ;
+  }

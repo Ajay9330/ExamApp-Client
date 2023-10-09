@@ -42,8 +42,8 @@ function ExamCard({ exam, onDelete }) {
       <p className="exam-created-by">Created By: {exam.createdBy}</p>
       <p className="exam-created-by">Created At: {formatDate(exam.createdAt)}</p>
       <div>
-      <button className="result" onClick={toggleQuestions}>
-        {showQuestions ? 'Hide Questions ' : 'Show Questions'}
+      <button className="exp" onClick={toggleQuestions}>
+        {showQuestions ?<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="20"><path d="m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z"/></svg> :<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg>}
       </button>
       <button className="show-result-button result" onClick={handleShowResultClick}>
         Show Result
