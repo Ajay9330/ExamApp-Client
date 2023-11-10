@@ -11,6 +11,11 @@
   text-align: center;
   position: relative; 
 }
+.login-container div{
+  background-color: whi;
+  display: flex;
+  justify-content: center;
+}
 
 .login-container::before {
 
@@ -29,12 +34,17 @@
   z-index: -1;
 }
 
-  .login-container h1 {
-    font-size: 2rem;
-    background-color: rgba(214, 205, 205, 0.429);
+  .login-container h1 i {
+    color: white;
+    width: 350px;
+    margin: auto;
+    font-size: 4rem;
+    background-color: rgba(235, 223, 223, 0.429);
     margin-bottom: 20px;
-    color: #000000;
-    text-shadow: 0px 0px 6px rgb(255, 255, 255); /* Example with increased opacity */
+    color: rgb(0, 0, 360);
+    /* filter:  drop-shadow(5px); */
+    text-shadow: 4px 4px 4px rgb(24, 21, 21)(163, 147, 147) ;
+    /* text-shadow: 0px 0px 6px rgb(255, 255, 255); Example with increased opacity */
 
   }
   
@@ -42,7 +52,7 @@
     margin: auto;
     display: block;
     width: 60%;
-
+margin: 0px;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;

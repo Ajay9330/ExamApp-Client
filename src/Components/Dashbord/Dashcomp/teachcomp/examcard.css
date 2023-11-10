@@ -14,12 +14,15 @@
 
   .toggle-questions-button ,.result{
     margin: 10px;
-    padding: 10px 10px;
+    /* padding: 10px 10px; */
     font-size: large;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
     color: white;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
     cursor: pointer;
   }
   .exam-title {
@@ -111,13 +114,14 @@
   }
   
   .idelete-button {
-    margin-top: 15px;
+    margin: 10px;
+    /* margin-top: 15px; */
     float: right;
     background-color: #ff0000;
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 8px 16px;
+    /* padding: 8px 16px; */
     cursor: pointer;
     transition: background-color 0.2s;
     font-family: 'Arial', sans-serif;
@@ -141,17 +145,18 @@ display: flex;
     background-color: rgba(178, 34, 34, 0);
     stroke: #12f328;
     stroke-dashoffset: 50px;
-    background-color: #000000;
+    background-color: #efe9e9;
     border: none;
+    border-radius:30% ;
   }
   .exp:hover{
     cursor: pointer;
      
     background-color: #12f328;
-    border-radius:40% ;
+
   }
   .exp:active{
-  
+
     background-color: #12f328;
     border-radius:50% ;
   }

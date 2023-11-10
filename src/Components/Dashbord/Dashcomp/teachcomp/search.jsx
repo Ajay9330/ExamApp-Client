@@ -84,13 +84,16 @@ function SearchUser() {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Enter search query"
+          placeholder="search user"
         />
         <button className='srchbtn' onClick={handleSearch} disabled={isLoading}>
           Search
         </button>
+     
       </div>
+  
       <div className="user-card-list">
+    
         {searchResult.map((user) => (
            <UserCard key={user._id} user={user} onDeleteClick={onuserDelete} />
         ))}

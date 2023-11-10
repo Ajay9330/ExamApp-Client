@@ -1,52 +1,64 @@
 .mainnav {
-    position: sticky;
-    top: 0;
-    background-color: #3498db;
-    background-color: #000000;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #2980b9;
-  }
-  .mainnav img{ position: sticky;
-    padding: px;
-    background-color: rgb(139, 237, 147);
+  position: sticky;
+  top: 0;
+  /* background-color: #3498db; */
+  background-color: rgba(104, 171, 226, 0.959);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #2980b9;
+}
 
-  }
-  .mainnav img:hover{
-background-color: aliceblue;
-cursor: pointer;
+.mainnav img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgb(139, 237, 147);
+  cursor: pointer;
+}
+
+.mainnav img:hover {
+  background-color: aliceblue;
+}
+
+.mainnav h2 {
+  color: white;
+  font-size: 20px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.buttonStyles {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.buttonStyles i {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.buttonStyles:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .mainnav {
+    padding: 10px;
   }
   .mainnav h2 {
-    color: white;
-    font-size: 20px;
-    margin: 0;
+    font-size: calc(1em + 2vw - 7px);
   }
-  
   .buttonStyles {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 5px 10px;
   }
-  
-  .buttonStyles:hover {
-    background-color: #c0392b;
-  }
-  
-  @media (max-width: 768px) {
-    .mainnav {
-      padding: 10px;
-    }
-    .mainnav h2{
-      font-size: calc(1em + 2vw - 7px);
-    }
-    .buttonStyles{
-      padding: 5px 10px;
-    }
-  }
-  
+}

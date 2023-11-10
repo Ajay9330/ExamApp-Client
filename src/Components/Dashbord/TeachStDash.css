@@ -9,7 +9,8 @@
 /* Left sidebar */
 .teach-dash-left {
     
-  background-color: #adb1b793;
+  background-color: rgba(194, 214, 230, 0.959);
+  box-shadow: 1px 2px 13px 7px rgb(135, 111, 160);
   color: rgb(2, 2, 2);
   width: 78px;
   overflow-x: hidden;
@@ -31,8 +32,14 @@
   padding: 0;
 }
 
+.material-icons {
+font-size:35px;
+}
+
+
 /* Left sidebar list item */
 .teach-dash-left li {
+  
     border-radius: 45px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 16px;
@@ -72,7 +79,7 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 800;
   color: rgb(75, 4, 217);
-    background-color: #d4cece;
+    background-color: #faf5f5;
 
 }
 
@@ -91,8 +98,8 @@
 
 /* Toggle button */
 .dashtoggle-button {
-  background-color: #333;
-  color: white;
+  /* background-color: #333; */
+  /* color: white; */
   border: none;
   padding: 10px 15px;
   cursor: pointer;

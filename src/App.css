@@ -1,6 +1,6 @@
 body {
   /* Set initial background color */
-  background-color: rgb(12, 12, 12);
+  background-color: rgba(209, 209, 209, 0.086);
   /* background-image: url('./Components/Dashbord/media/body.png'); */
 background-size: cover;
   /* Create a gradient background with animation */

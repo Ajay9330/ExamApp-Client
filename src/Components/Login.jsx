@@ -60,9 +60,15 @@ const Login = ({ setLogin }) => {
     <>
     {loading?<Loading/>:""}
     <div className="login-container">
-      <h1>Login</h1>
+      <h1>    <i className="material-icons">account_circle</i>
+      <span class="material-icons">
+
+</span>
+      </h1>
       {error && !loading && <Message message={error} onClose={()=>{setError(null)}} />}
       <form onSubmit={handleSubmit}>
+        <div>
+        <i className="material-icons">email</i>
         <input
           id='emai'
           type="text"
@@ -71,6 +77,9 @@ const Login = ({ setLogin }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        </div>
+        <div>
+        <i className="material-icons">lock</i>
         <input
           id='pass'
           type="password"
@@ -79,6 +88,9 @@ const Login = ({ setLogin }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        </div>
+   
+        <div>
         <select
           id='type'
           title='select'
@@ -89,6 +101,9 @@ const Login = ({ setLogin }) => {
           <option value="student">Student</option>
           <option value="teacher">Teacher</option>
         </select>
+        </div>
+
+
         <button type="submit" className="login-button" disabled={loading}>
           {loading ? 'Logging in...' : 'Login'}
         </button>
