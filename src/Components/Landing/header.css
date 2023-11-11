@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   /* background-color: #3498db; */
-  background-color: rgba(104, 171, 226, 0.959);
+  background-color: rgba(201, 223, 241, 0.959);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -10,16 +10,18 @@
   border-bottom: 2px solid #2980b9;
 }
 
-.mainnav img {
+.mainnav #home {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: rgb(139, 237, 147);
+  background-color: rgb(255, 255, 255);
   cursor: pointer;
+  user-select: none;
 }
 
-.mainnav img:hover {
-  background-color: aliceblue;
+.mainnav #home:active {
+  background-color: rgb(241, 241, 241);
+  color: blueviolet;
 }
 
 .mainnav h2 {

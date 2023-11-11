@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './TeachStDash.css'; // Import the separate CSS file
-import lp from './media/profile.svg';
-import lex from './media/exam.svg';
-import lsrch from './media/search.svg';
-import lcre from './media/create.svg';
+
+//replaced by the google material icons
+// import lp from './media/profile.svg';
+// import lex from './media/exam.svg';
+// import lsrch from './media/search.svg';
+// import lcre from './media/create.svg';
+
 import Profile from './Dashcomp/profile';
 // import CreateExam from '../exam/Createxam';
 import Exams from './Dashcomp/teachcomp/Exams';

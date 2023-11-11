@@ -1,6 +1,8 @@
 body {
   /* Set initial background color */
   background-color: rgba(209, 209, 209, 0.086);
+background-image: url('./Components/Landing/toplogoeximo.png');
+
   /* background-image: url('./Components/Dashbord/media/body.png'); */
 background-size: cover;
   /* Create a gradient background with animation */

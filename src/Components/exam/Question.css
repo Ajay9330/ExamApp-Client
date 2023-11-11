@@ -2,11 +2,11 @@
 .question {
     width: 100%;
     max-width: 500px;
-    background-color: #616dc1;
+    background-color: rgb(138, 170, 236);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
   }
   

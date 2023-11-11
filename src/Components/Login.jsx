@@ -3,7 +3,7 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import Loading from './Loading';
 import Message from './Message';
-
+import eximo from './Landing/eximo.png'
 const Login = ({ setLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -60,17 +60,17 @@ const Login = ({ setLogin }) => {
     <>
     {loading?<Loading/>:""}
     <div className="login-container">
-      <h1>    <i className="material-icons">account_circle</i>
-      <span class="material-icons">
+      <img src={eximo} width={200} alt='logo'/>
+      <p>
+          {/* <i className="material-icons">account_circle</i> */}
 
-</span>
-      </h1>
+      </p>
       {error && !loading && <Message message={error} onClose={()=>{setError(null)}} />}
       <form onSubmit={handleSubmit}>
         <div>
-        <i className="material-icons">email</i>
+        <i className="material-icons " id='email'>email</i>
         <input
-          id='emai'
+          
           type="text"
           placeholder="Email"
           className="input-field"
@@ -79,9 +79,9 @@ const Login = ({ setLogin }) => {
         />
         </div>
         <div>
-        <i className="material-icons">lock</i>
+        <i id='pass' className="material-icons">lock</i>
         <input
-          id='pass'
+         
           type="password"
           placeholder="Password"
           className="input-field"

@@ -4,13 +4,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(100, 93, 93, 0.659); /* Adjust background color if needed */
+  /* background-color: rgba(100, 93, 93, 0.659); Adjust background color if needed */
+  background-color: rgba(204, 211, 218, 0.823);
   z-index: 8;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
+.loading-container img{
+  filter: brightness(1.5) contrast(3) ;
+}
 /* Rest of your CSS remains the same */
 
 .loading-spinner {
@@ -22,7 +26,44 @@
   animation: spin .5s ease-in-out infinite;
 }
 
+.loading-icon{
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 45px;
+  animation: spin 1.5s ease infinite;
+  color:#007bff;
+  display: none;
+}
+#wait-text{
+  user-select: none;
+align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 2rem;
+  font-family:'Times New Roman', Times, serif;
+}
+/* 
+#wait-text::after{
+  content: '';
+  display: block;
+  background-color: #01080f;
+  animation:dotdotload 2s infinite;
+  align-self: center;
+  width: 100%;
+  border-top: 5px solid;
+  height: 2px;
+  border: 5px solid;
+} */
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+@keyframes dotdotload {
+  0% {  border-color: #000000; width: 1%;}
+  25% {  }
+  50% { border-color:#007bff ;  }
+  75% {   }
+  90% {     }
+  100% {   border-color: rgb(135, 255, 91);  width: 100%; }
 }
