@@ -3,7 +3,7 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import Loading from './Loading';
 import Message from './Message';
-import eximo from './Landing/eximo.png'
+import eximo from './Landing/ex.png'
 const Login = ({ setLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
