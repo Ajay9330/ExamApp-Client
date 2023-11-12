@@ -48,6 +48,12 @@
 
 
 .detail {
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #4df0dd25;
+ padding: 8px;
+ border-radius: 55px;
+ box-shadow: 2px 1px 4px 1px rgb(108, 239, 239);
   display: flex;
   align-items: center;
 }
@@ -60,6 +66,9 @@
 }
 
 .value {
+  word-break: break-all;
+  /* word-wrap:break-word; */
+
   font-size: 26px;
   color: #333;
 }
@@ -98,7 +107,7 @@
 .unknown {
   color: #ff0000;
 }
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   .user-details {
     grid-template-columns: repeat(1, 1fr);
     background-color: #e5f8e5;
